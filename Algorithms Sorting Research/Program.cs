@@ -11,7 +11,7 @@ namespace Algorithms_Sorting_Research
         static void Main(string[] args)
         {
 
-            const int SIZE = 10000;		//change to get diff input sizes during testing 10,000  100,000  1,000,000  10,000,000  100,000,000  500,000,000
+            const int SIZE = 100000;		//change to get diff input sizes during testing 10,000  100,000  1,000,000  10,000,000  100,000,000  500,000,000
 
             int[] arrayBS = new int[SIZE]; 		//bubble
             int[] arraySS = new int[SIZE];  	//selection
@@ -34,6 +34,10 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString()+ " ");
             } */
 
+            
+            string start = "Bubble Sort  " + "Data Size: \n" + SIZE;
+            System.IO.File.WriteAllText(@"C:\Sort.txt", start);            // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE, CHANGE IT FOR EACH RUN
+            
             for (int r = 0; r < 10; r++)
             {
 
@@ -51,11 +55,20 @@ namespace Algorithms_Sorting_Research
                     } */
 
                 Console.WriteLine("\nRun: {0} Bubble sort: {1} microseconds and {2} seconds", r, timebubble, timebubblesec);
+
+
+                // Example #2: Write one string to a text file. 
+                double text = timebubblesec;
+
+                // Example #4: Append new text to an existing file. 
+                // The using statement automatically closes the stream and calls  
+                // IDisposable.Dispose on the stream object. 
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                         // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+                {
+                    file.WriteLine(text);
+                }
             }
             // Selection Sort---------------------------------------------------------
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("Selection sort");
             //Uncomment out which type of data you want
             arraySS = random(SIZE);
@@ -68,6 +81,12 @@ namespace Algorithms_Sorting_Research
             {
                 Console.Write(item.ToString() + " ");
             } */
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                     // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+            {
+                file.WriteLine("\n\nSelection Sort  " + "Data Size: " + SIZE);
+            }
+
             for (int r = 0; r < 10; r++)
             {
 
@@ -85,12 +104,16 @@ namespace Algorithms_Sorting_Research
                      } */
 
                 Console.WriteLine("\nRun: {0} Selection sort: {1} microseconds and {2} seconds", r, timeselection, timeselectionsec);
+
+                double text = timeselectionsec;
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                             // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+                {
+                    file.WriteLine(text);
+                }
             }
 
             // Merge Sort ------------------------------------------------------------
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("Merge sort");
             //Uncomment out which type of data you want
             arrayMS = random(SIZE);
@@ -103,6 +126,11 @@ namespace Algorithms_Sorting_Research
             {
                 Console.Write(item.ToString() + " ");
             } */
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                             // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+            {
+                file.WriteLine("Merge Sort  " + "Data Size: " + SIZE);
+            }
 
             for (int r = 0; r < 10; r++)
             {
@@ -122,11 +150,16 @@ namespace Algorithms_Sorting_Research
                     } */
 
                 Console.WriteLine("\nRun: {0} Merge sort: {1} microseconds and {2} seconds", r, timemerge, timemergesec);
+
+                double text = timemergesec;
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                             // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+                {
+                    file.WriteLine(text);
+                }
+
             }
             // Quick Sort ------------------------------------------------------------
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("Quick sort");
             //Uncomment out which type of data you want
             arrayQS = random(SIZE);
@@ -139,6 +172,11 @@ namespace Algorithms_Sorting_Research
             {
                 Console.Write(item.ToString() + " ");
             } */
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                                             // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+            {
+                file.WriteLine("Quick Sort  " + "Data Size: " + SIZE);
+            }
 
             for (int r = 0; r < 10; r++)
             {
@@ -157,11 +195,16 @@ namespace Algorithms_Sorting_Research
                     } */
 
                 Console.WriteLine("\nRun: {0} Quick sort: {1} microseconds and {2} seconds", r, timequick, timequicksec);
+
+                double text = timequicksec;
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                                         // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+                {
+                    file.WriteLine(text);
+                }
+
             }
             // Heap Sort -------------------------------------------------------------
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("Heap sort");
             //Uncomment out which type of data you want
             arrayHS = random(SIZE);
@@ -174,6 +217,11 @@ namespace Algorithms_Sorting_Research
             {
                 Console.Write(item.ToString() + " ");
             } */
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                                     // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+            {
+                file.WriteLine("Heap Sort  " + "Data Size: " + SIZE);
+            }
 
             for (int r = 0; r < 10; r++)
             {
@@ -192,6 +240,14 @@ namespace Algorithms_Sorting_Research
                       } */
 
                 Console.WriteLine("\nRun: {0} Heap sort: {1} microseconds and {2} seconds", r, timeheap, timeheapsec);
+
+                double text = timeheapsec;
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Sort.txt", true))                                     // CHANGE THIS FILE LOCATION TO MATCH YOUR TEXT FILE
+                {
+                    file.WriteLine(text);
+                }
+
             }
             Console.ReadKey();
         } //main
