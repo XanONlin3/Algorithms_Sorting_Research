@@ -1,4 +1,4 @@
-﻿using System; 
+using System; 
 using System.Collections.Generic; 
 using System.Linq; 
 using System.Text;
@@ -11,7 +11,7 @@ namespace Algorithms_Sorting_Research
         static void Main(string[] args)
         {
 
-            const int SIZE = 15;		//change to get diff input sizes
+            const int SIZE = 10000;		//change to get diff input sizes during testing 10,000  100,000  1,000,000  10,000,000  100,000,000  500,000,000
 
             int[] arrayBS = new int[SIZE]; 		//bubble
             int[] arraySS = new int[SIZE];  	//selection
@@ -19,37 +19,13 @@ namespace Algorithms_Sorting_Research
             int[] arrayQS = new int[SIZE]; 	    //quick
             int[] arrayHS = new int[SIZE];		//heap
 
-            /*
-             * To test methods
-             * Reversed, few Unique, almostSorted
-             */
-            int[] testArr =new int[SIZE];
-            Console.WriteLine("\nReverse: ");
-            testArr = reverse(SIZE);
-            foreach (var item in testArr)
-            {
-                Console.Write(item.ToString() + " ");
-            }
-
-            Console.WriteLine("\nfewUnique: ");
-            testArr = fewUnique(SIZE);
-            foreach (var item in testArr)
-            {
-                Console.Write(item.ToString() + " ");
-            }
-
-            Console.WriteLine("\nAlmostSorted: ");
-            testArr = almostSorted(SIZE);
-            foreach (var item in testArr)
-            {
-                Console.Write(item.ToString() + " ");
-            }
-
 
             // Bubble Sort -----------------------------------------------------------
-            Random rnd = new Random();
-            for (int i = 0; i < SIZE; i++)
-                arrayBS[i] = rnd.Next(1, 10000);
+            //Uncomment out which type of data you want
+            arrayBS = random(SIZE);
+            //arrayBS = reverse(SIZE);
+            //arrayBS = fewUnique(SIZE);
+            //arrayBS = almostSorted(SIZE);
           
         /*    Console.WriteLine("Bubble before: ");
             foreach (var item in arrayBS)
@@ -62,6 +38,7 @@ namespace Algorithms_Sorting_Research
             bubblesort(arrayBS, SIZE);
             sw.Stop();
             long timebubble = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+            double timebubblesec = (timebubble * .000001);
 
         /*    Console.WriteLine("\nBubble after: ");
             foreach (var item in arrayBS)
@@ -69,12 +46,14 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds", timebubble);
+            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timebubble, timebubblesec);
 
             // Selection Sort---------------------------------------------------------
-            Random rnd2 = new Random();
-            for (int i = 0; i < SIZE; i++)
-                arraySS[i] = rnd2.Next(1, 10000);
+            //Uncomment out which type of data you want
+            arraySS = random(SIZE);
+            //arraySS = reverse(SIZE);
+            //arraySS = fewUnique(SIZE);
+            //arraySS = almostSorted(SIZE);
 
        /*     Console.WriteLine("\nSelection before: ");
             foreach (var item in arraySS)
@@ -87,6 +66,7 @@ namespace Algorithms_Sorting_Research
             selectionsort(arraySS, SIZE);
             sw2.Stop();
             long timeselection = sw2.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+            double timeselectionsec = (timeselection * .000001);
 
        /*     Console.WriteLine("\nSelection after: ");
             foreach (var item in arraySS)
@@ -94,13 +74,15 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Console.WriteLine("\nSelection sort: {0} microseconds", timeselection);
+            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timeselection, timeselectionsec);
 
 
             // Merge Sort ------------------------------------------------------------
-            Random rnd3 = new Random();
-            for (int i = 0; i < SIZE; i++)
-                arrayMS[i] = rnd3.Next(1, 10000);
+            //Uncomment out which type of data you want
+            arrayMS = random(SIZE);
+            //arrayMS = reverse(SIZE);
+            //arrayMS = fewUnique(SIZE);
+            //arrayMS = almostSorted(SIZE);
 
        /*     Console.WriteLine("\nMerge before: ");
             foreach (var item in arrayMS)
@@ -113,6 +95,7 @@ namespace Algorithms_Sorting_Research
             mergesort(arrayMS, 0, SIZE - 1);
             sw3.Stop();
             long timemerge = sw3.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+            double timemergesec = (timemerge * .000001);
 
 
         /*    Console.WriteLine("\nMerge after: ");
@@ -121,13 +104,15 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Console.WriteLine("\nMerge sort: {0} microseconds", timemerge);
+            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timemerge, timemergesec);
 
             // Quick Sort ------------------------------------------------------------
-            Random rnd4 = new Random();
-            for (int i = 0; i < SIZE; i++)
-                arrayQS[i] = rnd4.Next(1, 10000);
-   
+            //Uncomment out which type of data you want
+            arrayQS = random(SIZE);
+            //arrayQS = reverse(SIZE);
+            //arrayQS = fewUnique(SIZE);
+            //arrayQS = almostSorted(SIZE);
+
        /*     Console.WriteLine("\nQuick before: ");
             foreach (var item in arrayQS)
             {
@@ -139,20 +124,23 @@ namespace Algorithms_Sorting_Research
             quicksort(arrayQS, 0, SIZE - 1);
             sw4.Stop();
             long timequick = sw4.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-   
+            double timequicksec = (timequick * .000001);
+
         /*    Console.WriteLine("\nQuick after: ");
             foreach (var item in arrayQS)
             {
                 Console.Write(item.ToString() + " ");
             } */
-   
-            Console.WriteLine("\nQuick sort: {0} microseconds", timequick);
+
+            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timequick, timequicksec);
  
             // Heap Sort -------------------------------------------------------------
-            Random rnd5 = new Random();
-            for (int i = 0; i < SIZE; i++)
-                arrayHS[i] = rnd5.Next(1, 10000);
-   
+            //Uncomment out which type of data you want
+            arrayHS = random(SIZE);
+            //arrayHS = reverse(SIZE);
+            //arrayHS = fewUnique(SIZE);
+            //arrayHS = almostSorted(SIZE);
+
        /*     Console.WriteLine("\nHeap before: ");
             foreach (var item in arrayHS)
             {
@@ -164,14 +152,15 @@ namespace Algorithms_Sorting_Research
             heapsort(arrayHS);
             sw5.Stop();
             long timeheap = sw5.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-   
+            double timeheapsec = (timeheap * .000001);
+
       /*      Console.WriteLine("\nHeap after: ");
             foreach (var item in arrayHS)
             {
                 Console.Write(item.ToString() + " ");
             } */
-  
-            Console.WriteLine("\nHeap sort: {0} microseconds", timeheap);
+
+            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timeheap, timeheapsec);
   
             Console.ReadKey();
         } //main
@@ -329,6 +318,8 @@ namespace Algorithms_Sorting_Research
 		    }
 	    }
 
+
+
         static int[] reverse(int size)
         {
             int[] reversedArr = new int[size];
@@ -338,7 +329,7 @@ namespace Algorithms_Sorting_Research
                 reversedArr[i] = rnd.Next(1, 10000);
 
             Array.Sort(reversedArr);
-            Array.Reverse(reversedArr);  
+            Array.Reverse(reversedArr);
             return reversedArr;
         }
 
@@ -352,13 +343,14 @@ namespace Algorithms_Sorting_Research
 
             Array.Sort(almostSortedArr);
 
-            int p =(int)(size * .20); //change last 20%
-            int s = size - p;          
+            int p = (int)(size * .20); //change last 20%
+            int s = size - p;
             for (int i = s; i < size; i++)
                 almostSortedArr[i] = rnd.Next(1, 10000);
 
             return almostSortedArr;
         }
+
         static int[] fewUnique(int size)
         {
             int[] fewUniqueArr = new int[size];
@@ -370,11 +362,25 @@ namespace Algorithms_Sorting_Research
 
             Array.Sort(fewUniqueArr);
 
-            int p =(int)(size * .20);   //change 20% of values
+            int p = (int)(size * .20);   //change 20% of values
             for (int i = 0; i < p; i++)
                 fewUniqueArr[rnd.Next(1, 10000) % size] = rnd.Next(1, 10000);
 
             return fewUniqueArr;
         }
+
+        static int[] random(int size)
+        {
+            int[] randomNum = new int[size];
+            
+            Random rnd = new Random();
+            for (int i = 0; i < size; i++)
+                randomNum[i] = rnd.Next(1, 10000);
+
+            return randomNum;
+        }
+
+
+
     } //class
 } //namespace
