@@ -11,13 +11,40 @@ namespace Algorithms_Sorting_Research
         static void Main(string[] args)
         {
 
-            const int SIZE = 1000000;		//change to get diff input sizes
+            const int SIZE = 15;		//change to get diff input sizes
 
             int[] arrayBS = new int[SIZE]; 		//bubble
             int[] arraySS = new int[SIZE];  	//selection
             int[] arrayMS = new int[SIZE];  	//merge
             int[] arrayQS = new int[SIZE]; 	    //quick
             int[] arrayHS = new int[SIZE];		//heap
+
+            /*
+             * To test methods
+             * Reversed, few Unique, almostSorted
+             */
+            int[] testArr =new int[SIZE];
+            Console.WriteLine("\nReverse: ");
+            testArr = reverse(SIZE);
+            foreach (var item in testArr)
+            {
+                Console.Write(item.ToString() + " ");
+            }
+
+            Console.WriteLine("\nfewUnique: ");
+            testArr = fewUnique(SIZE);
+            foreach (var item in testArr)
+            {
+                Console.Write(item.ToString() + " ");
+            }
+
+            Console.WriteLine("\nAlmostSorted: ");
+            testArr = almostSorted(SIZE);
+            foreach (var item in testArr)
+            {
+                Console.Write(item.ToString() + " ");
+            }
+
 
             // Bubble Sort -----------------------------------------------------------
             Random rnd = new Random();
@@ -301,5 +328,53 @@ namespace Algorithms_Sorting_Research
 			    MaxHeapify(input, heapSize, largest);
 		    }
 	    }
+
+        static int[] reverse(int size)
+        {
+            int[] reversedArr = new int[size];
+
+            Random rnd = new Random();
+            for (int i = 0; i < size; i++)
+                reversedArr[i] = rnd.Next(1, 10000);
+
+            Array.Sort(reversedArr);
+            Array.Reverse(reversedArr);  
+            return reversedArr;
+        }
+
+        static int[] almostSorted(int size)
+        {
+            int[] almostSortedArr = new int[size];
+
+            Random rnd = new Random();
+            for (int i = 0; i < size; i++)
+                almostSortedArr[i] = rnd.Next(1, 10000);
+
+            Array.Sort(almostSortedArr);
+
+            int p =(int)(size * .20); //change last 20%
+            int s = size - p;          
+            for (int i = s; i < size; i++)
+                almostSortedArr[i] = rnd.Next(1, 10000);
+
+            return almostSortedArr;
+        }
+        static int[] fewUnique(int size)
+        {
+            int[] fewUniqueArr = new int[size];
+
+            Random rnd = new Random();
+            int same = rnd.Next(1, 10000);
+            for (int i = 0; i < size; i++)
+                fewUniqueArr[i] = same;
+
+            Array.Sort(fewUniqueArr);
+
+            int p =(int)(size * .20);   //change 20% of values
+            for (int i = 0; i < p; i++)
+                fewUniqueArr[rnd.Next(1, 10000) % size] = rnd.Next(1, 10000);
+
+            return fewUniqueArr;
+        }
     } //class
 } //namespace
