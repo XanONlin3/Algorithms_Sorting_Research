@@ -21,6 +21,7 @@ namespace Algorithms_Sorting_Research
 
 
             // Bubble Sort -----------------------------------------------------------
+            Console.WriteLine("Bubble sort");
             //Uncomment out which type of data you want
             arrayBS = random(SIZE);
             //arrayBS = reverse(SIZE);
@@ -33,22 +34,29 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString()+ " ");
             } */
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            bubblesort(arrayBS, SIZE);
-            sw.Stop();
-            long timebubble = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            double timebubblesec = (timebubble * .000001);
-
-        /*    Console.WriteLine("\nBubble after: ");
-            foreach (var item in arrayBS)
+            for (int r = 0; r < 10; r++)
             {
-                Console.Write(item.ToString() + " ");
-            } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timebubble, timebubblesec);
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+                bubblesort(arrayBS, SIZE);
+                sw.Stop();
+                long timebubble = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                double timebubblesec = (timebubble * .000001);
 
+                /*    Console.WriteLine("\nBubble after: ");
+                    foreach (var item in arrayBS)
+                    {
+                        Console.Write(item.ToString() + " ");
+                    } */
+
+                Console.WriteLine("\nRun: {0} Bubble sort: {1} microseconds and {2} seconds", r, timebubble, timebubblesec);
+            }
             // Selection Sort---------------------------------------------------------
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Selection sort");
             //Uncomment out which type of data you want
             arraySS = random(SIZE);
             //arraySS = reverse(SIZE);
@@ -60,24 +68,30 @@ namespace Algorithms_Sorting_Research
             {
                 Console.Write(item.ToString() + " ");
             } */
-
-            Stopwatch sw2 = new Stopwatch();
-            sw2.Start();
-            selectionsort(arraySS, SIZE);
-            sw2.Stop();
-            long timeselection = sw2.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            double timeselectionsec = (timeselection * .000001);
-
-       /*     Console.WriteLine("\nSelection after: ");
-            foreach (var item in arraySS)
+            for (int r = 0; r < 10; r++)
             {
-                Console.Write(item.ToString() + " ");
-            } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timeselection, timeselectionsec);
+                Stopwatch sw2 = new Stopwatch();
+                sw2.Start();
+                selectionsort(arraySS, SIZE);
+                sw2.Stop();
+                long timeselection = sw2.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                double timeselectionsec = (timeselection * .000001);
 
+                /*     Console.WriteLine("\nSelection after: ");
+                     foreach (var item in arraySS)
+                     {
+                         Console.Write(item.ToString() + " ");
+                     } */
+
+                Console.WriteLine("\nRun: {0} Selection sort: {1} microseconds and {2} seconds", r, timeselection, timeselectionsec);
+            }
 
             // Merge Sort ------------------------------------------------------------
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Merge sort");
             //Uncomment out which type of data you want
             arrayMS = random(SIZE);
             //arrayMS = reverse(SIZE);
@@ -90,23 +104,30 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Stopwatch sw3 = new Stopwatch();
-            sw3.Start();
-            mergesort(arrayMS, 0, SIZE - 1);
-            sw3.Stop();
-            long timemerge = sw3.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            double timemergesec = (timemerge * .000001);
-
-
-        /*    Console.WriteLine("\nMerge after: ");
-            foreach (var item in arrayMS)
+            for (int r = 0; r < 10; r++)
             {
-                Console.Write(item.ToString() + " ");
-            } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timemerge, timemergesec);
+                Stopwatch sw3 = new Stopwatch();
+                sw3.Start();
+                mergesort(arrayMS, 0, SIZE - 1);
+                sw3.Stop();
+                long timemerge = sw3.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                double timemergesec = (timemerge * .000001);
 
+
+                /*    Console.WriteLine("\nMerge after: ");
+                    foreach (var item in arrayMS)
+                    {
+                        Console.Write(item.ToString() + " ");
+                    } */
+
+                Console.WriteLine("\nRun: {0} Merge sort: {1} microseconds and {2} seconds", r, timemerge, timemergesec);
+            }
             // Quick Sort ------------------------------------------------------------
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Quick sort");
             //Uncomment out which type of data you want
             arrayQS = random(SIZE);
             //arrayQS = reverse(SIZE);
@@ -119,22 +140,29 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Stopwatch sw4 = new Stopwatch();
-            sw4.Start();
-            quicksort(arrayQS, 0, SIZE - 1);
-            sw4.Stop();
-            long timequick = sw4.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            double timequicksec = (timequick * .000001);
-
-        /*    Console.WriteLine("\nQuick after: ");
-            foreach (var item in arrayQS)
+            for (int r = 0; r < 10; r++)
             {
-                Console.Write(item.ToString() + " ");
-            } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timequick, timequicksec);
- 
+                Stopwatch sw4 = new Stopwatch();
+                sw4.Start();
+                quicksort(arrayQS, 0, SIZE - 1);
+                sw4.Stop();
+                long timequick = sw4.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                double timequicksec = (timequick * .000001);
+
+                /*    Console.WriteLine("\nQuick after: ");
+                    foreach (var item in arrayQS)
+                    {
+                        Console.Write(item.ToString() + " ");
+                    } */
+
+                Console.WriteLine("\nRun: {0} Quick sort: {1} microseconds and {2} seconds", r, timequick, timequicksec);
+            }
             // Heap Sort -------------------------------------------------------------
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Heap sort");
             //Uncomment out which type of data you want
             arrayHS = random(SIZE);
             //arrayHS = reverse(SIZE);
@@ -147,21 +175,24 @@ namespace Algorithms_Sorting_Research
                 Console.Write(item.ToString() + " ");
             } */
 
-            Stopwatch sw5 = new Stopwatch();
-            sw5.Start();
-            heapsort(arrayHS);
-            sw5.Stop();
-            long timeheap = sw5.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            double timeheapsec = (timeheap * .000001);
-
-      /*      Console.WriteLine("\nHeap after: ");
-            foreach (var item in arrayHS)
+            for (int r = 0; r < 10; r++)
             {
-                Console.Write(item.ToString() + " ");
-            } */
 
-            Console.WriteLine("\nBubble sort: {0} microseconds and {1} seconds", timeheap, timeheapsec);
-  
+                Stopwatch sw5 = new Stopwatch();
+                sw5.Start();
+                heapsort(arrayHS);
+                sw5.Stop();
+                long timeheap = sw5.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                double timeheapsec = (timeheap * .000001);
+
+                /*      Console.WriteLine("\nHeap after: ");
+                      foreach (var item in arrayHS)
+                      {
+                          Console.Write(item.ToString() + " ");
+                      } */
+
+                Console.WriteLine("\nRun: {0} Heap sort: {1} microseconds and {2} seconds", r, timeheap, timeheapsec);
+            }
             Console.ReadKey();
         } //main
 
